@@ -1,0 +1,18 @@
+{
+    "sourceFile": ".npmignore",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1759221821493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1759221821493,
+            "name": "Commit-0",
+            "content": "# 开发文件\r\nsrc/\r\npublic/\r\n*.config.js\r\n*.config.ts\r\nvite.config.ts\r\ntsconfig*.json\r\neslint.config.js\r\n\r\n# 开发依赖\r\nnode_modules/\r\n.git/\r\n.gitignore\r\n\r\n# 构建产物（除了 dist）\r\ndist-app/\r\n\r\n# 文档和示例\r\ndocs/\r\nexamples/\r\n*.md\r\n!README.md\r\n\r\n# 测试文件\r\n__tests__/\r\n*.test.*\r\n*.spec.*\r\n\r\n# 开发工具\r\n.vscode/\r\n.idea/\r\n*.log\r\n.DS_Store\r\nThumbs.db\r\n\r\n# 临时文件\r\n*.tmp\r\n*.temp\r\n.cache/\r\n"
+        }
+    ]
+}

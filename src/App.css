@@ -1,0 +1,95 @@
+:root {
+  --bg: #f8f9fa;
+  --border: #e6e7eb;
+  --text: #222;
+  --muted: #6b7280;
+  --primary: #2563eb;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+}
+
+.sidebar {
+  width: 280px;
+  border-right: 1px solid var(--border);
+  padding: 16px;
+  overflow-y: auto;
+  background: #fff;
+}
+
+.sidebar h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 14px;
+}
+
+.nav a {
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav a:hover {
+  background: #f3f4f6;
+}
+
+.nav a.active {
+  background: #eff6ff;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.main {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background: var(--bg);
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+
+.page-title {
+  font-size: 20px;
+  margin: 0 0 4px;
+}
+
+.page-desc {
+  color: var(--muted);
+  margin: 0;
+}
+
+.page-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}

@@ -1,0 +1,38 @@
+{
+    "sourceFile": "vite.config.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1759209722438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1759209756001,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,8 @@\n   plugins: [react()],\n   build: {\n     lib: {\n       entry: {\n-        index: \"./src/plugins/index.js\", // 入口文件\n         components: \"./src/components/index.js\", // 组件入口文件\n       },\n       name: \"ReactTablePluginTutorial\",\n       fileName: (format, entry) => `${entry}.${format}.js`,\n"
+                },
+                {
+                    "date": 1759209768476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     lib: {\n       entry: {\n         components: \"./src/components/index.js\", // 组件入口文件\n       },\n-      name: \"ReactTablePluginTutorial\",\n+      name: \"LazyImage\",\n       fileName: (format, entry) => `${entry}.${format}.js`,\n     },\n     rollupOptions: {\n       input: {\n"
+                },
+                {
+                    "date": 1759209775775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,8 @@\n       fileName: (format, entry) => `${entry}.${format}.js`,\n     },\n     rollupOptions: {\n       input: {\n-        index: \"./src/plugins/index.js\", // 入口文件\n         components: \"./src/components/index.js\", // 组件入口文件\n       },\n       output: [\n         {\n"
+                },
+                {
+                    "date": 1759209787632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n       fileName: (format, entry) => `${entry}.${format}.js`,\n     },\n     rollupOptions: {\n       input: {\n-        index: \"./src/plugins/index.js\", // 入口文件\n+        index: \"./src/components/index.js\", // 入口文件\n         components: \"./src/components/index.js\", // 组件入口文件\n       },\n       output: [\n         {\n"
+                },
+                {
+                    "date": 1759209813960,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,16 +24,8 @@\n           dir: \"dist\",\n         },\n       ],\n       // 定义外部依赖\n-      external: [\n-        \"react\",\n-        \"react-dom\",\n-        \"i18next\",\n-        \"react-i18next\",\n-        \"i18next-http-backend\",\n-        \"react/jsx-runtime\",\n-        \"echarts-for-react\",\n-      ],\n+      external: [\"react\", \"react-dom\", \"echarts-for-react\"],\n     },\n   },\n });\n"
+                }
+            ],
+            "date": 1759209722438,
+            "name": "Commit-0",
+            "content": "import { defineConfig } from \"vite\";\nimport react from \"@vitejs/plugin-react-swc\";\n\n// https://vitejs.dev/config/\nexport default defineConfig({\n  plugins: [react()],\n  build: {\n    lib: {\n      entry: {\n        index: \"./src/plugins/index.js\", // 入口文件\n        components: \"./src/components/index.js\", // 组件入口文件\n      },\n      name: \"ReactTablePluginTutorial\",\n      fileName: (format, entry) => `${entry}.${format}.js`,\n    },\n    rollupOptions: {\n      input: {\n        index: \"./src/plugins/index.js\", // 入口文件\n        components: \"./src/components/index.js\", // 组件入口文件\n      },\n      output: [\n        {\n          format: \"es\",\n          dir: \"dist\",\n        },\n      ],\n      // 定义外部依赖\n      external: [\n        \"react\",\n        \"react-dom\",\n        \"i18next\",\n        \"react-i18next\",\n        \"i18next-http-backend\",\n        \"react/jsx-runtime\",\n        \"echarts-for-react\",\n      ],\n    },\n  },\n});\n"
+        }
+    ]
+}

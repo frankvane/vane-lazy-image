@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/LazyImage/components/Placeholder.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1759226019942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1759226019942,
+            "name": "Commit-0",
+            "content": "/**\r\n * Placeholder 组件\r\n * 负责渲染不同类型的占位符，处理占位符样式和过渡效果\r\n */\r\n\r\nimport React from \"react\";\r\nimport styles from \"../style/style.module.css\";\r\n\r\nexport interface PlaceholderProps {\r\n  // 是否已加载完成\r\n  loaded: boolean;\r\n\r\n  // 占位符选项（按优先级排序）\r\n  placeholder?: React.ReactNode;\r\n  placeholderSvg?: string;\r\n  placeholderSrc?: string;\r\n  lqipDataUrl?: string | null;\r\n\r\n  // 样式相关\r\n  placeholderStyle?: React.CSSProperties;\r\n  placeholderClassName?: string;\r\n}\r\n\r\n/**\r\n * 图片占位符组件\r\n * 渲染优先级：placeholder > placeholderSvg > placeholderSrc/lqip > 默认占位符\r\n */\r\nexport const Placeholder: React.FC<PlaceholderProps> = ({\r\n  loaded,\r\n  placeholder,\r\n  placeholderSvg,\r\n  placeholderSrc,\r\n  lqipDataUrl,\r\n  placeholderStyle,\r\n  placeholderClassName,\r\n}) => {\r\n  // 如果图片已加载完成，不显示占位符\r\n  if (loaded) return null;\r\n\r\n  // 1. 自定义 React 节点占位符（最高优先级）\r\n  if (placeholder) {\r\n    return (\r\n      <div\r\n        className={[styles.placeholder, placeholderClassName]\r\n          .filter(Boolean)\r\n          .join(\" \")}\r\n        style={placeholderStyle}\r\n        aria-hidden=\"true\"\r\n      >\r\n        {placeholder}\r\n      </div>\r\n    );\r\n  }\r\n\r\n  // 2. SVG 占位符\r\n  if (placeholderSvg) {\r\n    // 处理 SVG 文本或 URL\r\n    if (placeholderSvg.trim().startsWith(\"<svg\")) {\r\n      return (\r\n        <div\r\n          className={[styles.placeholder, placeholderClassName]\r\n            .filter(Boolean)\r\n            .join(\" \")}\r\n          style={placeholderStyle}\r\n          aria-hidden=\"true\"\r\n          dangerouslySetInnerHTML={{ __html: placeholderSvg }}\r\n        />\r\n      );\r\n    }\r\n\r\n    // 处理 SVG URL\r\n    return (\r\n      <img\r\n        src={placeholderSvg}\r\n        className={[styles.placeholderImg, placeholderClassName]\r\n          .filter(Boolean)\r\n          .join(\" \")}\r\n        style={placeholderStyle}\r\n        alt=\"\"\r\n        aria-hidden=\"true\"\r\n      />\r\n    );\r\n  }\r\n\r\n  // 3. 图片 URL 占位符（包括 LQIP）\r\n  const imageUrl = placeholderSrc || lqipDataUrl;\r\n  if (imageUrl) {\r\n    return (\r\n      <img\r\n        src={imageUrl}\r\n        className={[styles.placeholderImg, placeholderClassName]\r\n          .filter(Boolean)\r\n          .join(\" \")}\r\n        style={placeholderStyle}\r\n        alt=\"\"\r\n        aria-hidden=\"true\"\r\n      />\r\n    );\r\n  }\r\n\r\n  // 4. 默认占位符（最低优先级）- 显示灰色渐变背景\r\n  return (\r\n    <div\r\n      className={[styles.placeholder, placeholderClassName]\r\n        .filter(Boolean)\r\n        .join(\" \")}\r\n      style={{\r\n        // 确保默认占位符有背景色\r\n        background: placeholderStyle?.background || undefined,\r\n        ...placeholderStyle,\r\n      }}\r\n      aria-hidden=\"true\"\r\n    />\r\n  );\r\n};\r\n\r\nexport default Placeholder;\r\n"
+        }
+    ]
+}

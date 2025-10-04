@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/components/LazyImage/hooks/useImageDecode.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1759216733881,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1759220766141,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n       return;\r\n     }\r\n \r\n     // 检查浏览器是否支持 decode API\r\n-    if (!('decode' in img) || typeof img.decode !== 'function') {\r\n+    if (!(\"decode\" in img) || typeof img.decode !== \"function\") {\r\n       // 不支持时直接标记为已解码\r\n       setIsDecoded(true);\r\n       onDecoded?.();\r\n       return;\r\n@@ -56,9 +56,9 @@\n       setIsDecoded(true);\r\n       onDecoded?.();\r\n     } catch (error) {\r\n       // 解码失败时也标记为已解码，避免卡住\r\n-      console.warn('Image decode failed, but allowing display:', error);\r\n+      console.warn(\"Image decode failed, but allowing display:\", error);\r\n       setIsDecoded(true);\r\n       onDecoded?.();\r\n     } finally {\r\n       decodingRef.current = false;\r\n"
+                }
+            ],
+            "date": 1759216733881,
+            "name": "Commit-0",
+            "content": "/**\r\n * useImageDecode Hook\r\n * 确保图片完全解码后再显示，避免加载过程中的空白闪烁\r\n */\r\n\r\nimport { useCallback, useEffect, useRef, useState } from \"react\";\r\n\r\nexport interface UseImageDecodeOptions {\r\n  src: string | null;\r\n  loaded: boolean;\r\n  imgRef: React.RefObject<HTMLImageElement | null>;\r\n  onDecoded?: () => void;\r\n}\r\n\r\nexport interface UseImageDecodeResult {\r\n  isDecoded: boolean;\r\n  decodeImage: () => Promise<void>;\r\n}\r\n\r\n/**\r\n * 处理图片解码的 Hook\r\n * 使用 img.decode() API 确保图片完全准备好后再显示\r\n */\r\nexport function useImageDecode({\r\n  src,\r\n  loaded,\r\n  imgRef,\r\n  onDecoded,\r\n}: UseImageDecodeOptions): UseImageDecodeResult {\r\n  const [isDecoded, setIsDecoded] = useState(false);\r\n  const decodingRef = useRef(false);\r\n  const lastSrcRef = useRef<string | null>(null);\r\n\r\n  // 解码图片的函数\r\n  const decodeImage = useCallback(async (): Promise<void> => {\r\n    const img = imgRef.current;\r\n\r\n    if (!img || decodingRef.current) {\r\n      return;\r\n    }\r\n\r\n    // 检查浏览器是否支持 decode API\r\n    if (!('decode' in img) || typeof img.decode !== 'function') {\r\n      // 不支持时直接标记为已解码\r\n      setIsDecoded(true);\r\n      onDecoded?.();\r\n      return;\r\n    }\r\n\r\n    try {\r\n      decodingRef.current = true;\r\n\r\n      // 等待图片完全解码\r\n      await img.decode();\r\n\r\n      setIsDecoded(true);\r\n      onDecoded?.();\r\n    } catch (error) {\r\n      // 解码失败时也标记为已解码，避免卡住\r\n      console.warn('Image decode failed, but allowing display:', error);\r\n      setIsDecoded(true);\r\n      onDecoded?.();\r\n    } finally {\r\n      decodingRef.current = false;\r\n    }\r\n  }, [imgRef, onDecoded]);\r\n\r\n  // 当 src 变化时，重置解码状态\r\n  useEffect(() => {\r\n    if (src !== lastSrcRef.current) {\r\n      setIsDecoded(false);\r\n      decodingRef.current = false;\r\n      lastSrcRef.current = src;\r\n    }\r\n  }, [src]);\r\n\r\n  // 当 loaded 为 true 且还未解码时，自动触发解码\r\n  useEffect(() => {\r\n    if (loaded && !isDecoded && imgRef.current && !decodingRef.current) {\r\n      // 使用 requestAnimationFrame 确保在下一帧解码\r\n      requestAnimationFrame(() => {\r\n        decodeImage();\r\n      });\r\n    }\r\n  }, [loaded, isDecoded, imgRef, decodeImage]);\r\n\r\n  return {\r\n    isDecoded,\r\n    decodeImage,\r\n  };\r\n}\r\n"
+        }
+    ]
+}

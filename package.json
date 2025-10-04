@@ -1,0 +1,83 @@
+{
+  "name": "vane-lazy-image",
+  "version": "1.0.13",
+  "description": "高性能的 React 图片懒加载组件，支持 LQIP、Web Worker、虚拟滚动等功能",
+  "type": "module",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./plugins": {
+      "types": "./dist/plugins/index.d.ts",
+      "import": "./dist/plugins/index.js"
+    },
+    "./custom-plugins/*": {
+      "types": "./dist/custom-plugins/*/index.d.ts",
+      "import": "./dist/custom-plugins/*/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "react",
+    "lazy-loading",
+    "image",
+    "lqip",
+    "web-worker",
+    "virtual-scroll",
+    "performance",
+    "typescript"
+  ],
+  "author": "vane",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frankvane/vane-lazy-image.git"
+  },
+  "bugs": {
+    "url": "https://github.com/frankvane/vane-lazy-image/issues"
+  },
+  "homepage": "https://github.com/frankvane/vane-lazy-image#readme",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build --mode lib",
+    "build:lib": "tsc -b && vite build --mode lib",
+    "build:app": "vite build",
+    "preview": "vite preview",
+    "preview:app": "vite preview --outDir dist-app",
+    "lint": "eslint .",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "localforage": "^1.10.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.9.3",
+    "react-syntax-highlighter": "^15.6.6",
+    "react-window": "^2.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@types/node": "^20.19.18",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
+    "terser": "^5.44.0",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.0.1",
+    "vite": "^5.4.1",
+    "vite-plugin-dts": "^4.5.4"
+  }
+}

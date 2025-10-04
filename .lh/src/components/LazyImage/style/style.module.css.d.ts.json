@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/LazyImage/style/style.module.css.d.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1759215941579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1759215941579,
+            "name": "Commit-0",
+            "content": "declare const styles: {\r\n  readonly [key: string]: string;\r\n};\r\nexport default styles;\r\n"
+        }
+    ]
+}
