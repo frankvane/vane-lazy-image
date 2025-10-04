@@ -48,10 +48,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build --mode lib",
-    "build:lib": "tsc -b && vite build --mode lib",
-    "build:app": "vite build",
+    "build:demo": "vite build",
     "preview": "vite preview",
-    "preview:app": "vite preview --outDir dist-app",
+    "preview:demo": "vite preview --outDir vane-lazy-image",
     "lint": "eslint .",
     "prepublishOnly": "npm run build"
   },
@@ -59,9 +58,11 @@
     "localforage": "^1.10.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-markdown": "^10.1.0",
     "react-router-dom": "^7.9.3",
     "react-syntax-highlighter": "^15.6.6",
-    "react-window": "^2.2.0"
+    "react-window": "^2.2.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

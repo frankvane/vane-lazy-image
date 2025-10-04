@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 31,
+            "activePatchIndex": 33,
             "patches": [
                 {
                     "date": 1759211723125,
@@ -132,6 +132,14 @@
                 {
                     "date": 1759551388585,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n {\r\n   \"name\": \"vane-lazy-image\",\r\n-  \"version\": \"1.0.12\",\r\n+  \"version\": \"1.0.13\",\r\n   \"description\": \"高性能的 React 图片懒加载组件，支持 LQIP、Web Worker、虚拟滚动等功能\",\r\n   \"type\": \"module\",\r\n   \"main\": \"dist/index.umd.js\",\r\n   \"module\": \"dist/index.es.js\",\r\n@@ -23,8 +23,9 @@\n   },\r\n   \"files\": [\r\n     \"dist\"\r\n   ],\r\n+  \"sideEffects\": false,\r\n   \"keywords\": [\r\n     \"react\",\r\n     \"lazy-loading\",\r\n     \"image\",\r\n@@ -58,15 +59,17 @@\n     \"localforage\": \"^1.10.0\",\r\n     \"react\": \"^18.3.1\",\r\n     \"react-dom\": \"^18.3.1\",\r\n     \"react-router-dom\": \"^7.9.3\",\r\n+    \"react-syntax-highlighter\": \"^15.6.6\",\r\n     \"react-window\": \"^2.2.0\"\r\n   },\r\n   \"devDependencies\": {\r\n     \"@eslint/js\": \"^9.9.0\",\r\n     \"@types/node\": \"^20.19.18\",\r\n     \"@types/react\": \"^18.3.3\",\r\n     \"@types/react-dom\": \"^18.3.0\",\r\n+    \"@types/react-syntax-highlighter\": \"^15.5.13\",\r\n     \"@vitejs/plugin-react\": \"^4.3.1\",\r\n     \"eslint\": \"^9.9.0\",\r\n     \"eslint-plugin-react-hooks\": \"^5.1.0-rc.0\",\r\n     \"eslint-plugin-react-refresh\": \"^0.4.9\",\r\n"
+                },
+                {
+                    "date": 1759552566846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,14 +47,14 @@\n   \"homepage\": \"https://github.com/frankvane/vane-lazy-image#readme\",\r\n   \"scripts\": {\r\n     \"dev\": \"vite\",\r\n     \"build\": \"tsc -b && vite build --mode lib\",\r\n-    \"build:lib\": \"tsc -b && vite build --mode lib\",\r\n     \"build:app\": \"vite build\",\r\n     \"preview\": \"vite preview\",\r\n     \"preview:app\": \"vite preview --outDir dist-app\",\r\n     \"lint\": \"eslint .\",\r\n-    \"prepublishOnly\": \"npm run build\"\r\n+    \"prepublishOnly\": \"npm run build\",\r\n+    \"build:lib\": \"BUILD_TARGET=lib vite build --mode lib\"\r\n   },\r\n   \"dependencies\": {\r\n     \"localforage\": \"^1.10.0\",\r\n     \"react\": \"^18.3.1\",\r\n"
+                },
+                {
+                    "date": 1759552639138,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,14 +47,13 @@\n   \"homepage\": \"https://github.com/frankvane/vane-lazy-image#readme\",\r\n   \"scripts\": {\r\n     \"dev\": \"vite\",\r\n     \"build\": \"tsc -b && vite build --mode lib\",\r\n-    \"build:app\": \"vite build\",\r\n+    \"build:demo\": \"vite build\",\r\n     \"preview\": \"vite preview\",\r\n-    \"preview:app\": \"vite preview --outDir dist-app\",\r\n+    \"preview:demo\": \"vite preview --outDir vane-lazy-image\",\r\n     \"lint\": \"eslint .\",\r\n-    \"prepublishOnly\": \"npm run build\",\r\n-    \"build:lib\": \"BUILD_TARGET=lib vite build --mode lib\"\r\n+    \"prepublishOnly\": \"npm run build\"\r\n   },\r\n   \"dependencies\": {\r\n     \"localforage\": \"^1.10.0\",\r\n     \"react\": \"^18.3.1\",\r\n"
                 }
             ],
             "date": 1759211723125,

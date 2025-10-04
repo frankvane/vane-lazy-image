@@ -60,6 +60,7 @@ import PredictiveLoadingDemo from "./pages/LazyLoadImagePlugin/PredictiveLoading
 import PriorityLoadingDemo from "./pages/LazyLoadImagePlugin/PriorityLoadingDemo";
 import ProgressOverlayDemo from "./pages/LazyLoadImagePlugin/ProgressOverlayDemo";
 import React from "react";
+import ReadmeDemo from "./pages/LazyLoadImagePlugin/ReadmeDemo";
 import RedactionDemo from "./pages/LazyLoadImagePlugin/RedactionDemo";
 import RetryOnErrorDemo from "./pages/LazyLoadImagePlugin/RetryOnErrorDemo";
 import ScrollIdleDemo from "./pages/LazyLoadImagePlugin/ScrollIdleDemo";
@@ -82,6 +83,7 @@ const App: React.FC = () => {
           <NavLink to="/" end>
             首页
           </NavLink>
+          <NavLink to="/readme">📖 README 文档</NavLink>
 
           <h3 style={{ marginTop: 12 }}>组合示例</h3>
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
@@ -199,6 +201,7 @@ const App: React.FC = () => {
       <main className="main">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/readme" element={<ReadmeDemo />} />
           <Route path="/lli-plugin/watermark" element={<WatermarkDemo />} />
           <Route path="/lli-plugin/a11y" element={<A11yDemo />} />
           <Route path="/lli-plugin/border-glow" element={<BorderGlowDemo />} />

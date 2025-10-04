@@ -89,7 +89,7 @@ export default defineConfig(({ command, mode }) => {
   return {
     plugins,
     build: {
-      outDir: "dist-app",
+      outDir: "vane-lazy-image",
       rollupOptions: {
         input: "./index.html",
       },

@@ -1,7 +1,5 @@
 # 🖼️ Vane Lazy Image
 
-<div align="center">
-
 一个功能强大、高度可扩展的 React 图片懒加载组件库
 
 [![NPM Version](https://img.shields.io/badge/npm-v1.0.9-blue)](https://www.npmjs.com/package/vane-lazy-image)
@@ -1385,6 +1383,4 @@ const LazyImage = withPlugins(LazyLoadImageCore as any, plugins);
 
 ---
 
-<div align="center">
 Made with ❤️ by Frank Vane
-</div>
