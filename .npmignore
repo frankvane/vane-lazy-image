@@ -1,0 +1,39 @@
+# 开发文件
+src/
+public/
+*.config.js
+*.config.ts
+vite.config.ts
+tsconfig*.json
+eslint.config.js
+
+# 开发依赖
+node_modules/
+.git/
+.gitignore
+
+# 构建产物（除了 dist）
+dist-app/
+
+# 文档和示例
+docs/
+examples/
+*.md
+!README.md
+
+# 测试文件
+__tests__/
+*.test.*
+*.spec.*
+
+# 开发工具
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db
+
+# 临时文件
+*.tmp
+*.temp
+.cache/
